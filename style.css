@@ -11,25 +11,30 @@
   --bg-url: url(./assets/bg-mobile.jpg);
   --stroke-color: rgba(255, 255, 255, 0.5);
   --surface-color: rgba(255, 255, 255, 0.1);
-  --surface-color-hover: ;
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url(assets/MoonStars.svg);
 }
 
 .light {
   --text-color: #000;
   --bg-url: url(./assets/bg-mobile-light.jpg);
-  --stroke-color: rgba(255, 255, 255, 0.5);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url(assets/Sun.svg);
+
 }
 
 body {
-  /*background-image: url(assets/bg-mobile.jpg);
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: cover; */
-
   /*background: color image repeat position/size */
-  background: url(assets/bg-mobile.jpg) no-repeat top center/cover;
-  font-family: 'Inter', sans-serif;
-  color: #fff;
+  background: var(--bg-url) no-repeat top center/cover;
+}
+
+body * {
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);
 }
 
 #container {
@@ -53,6 +58,14 @@ body {
   margin-top: 8px;
 }
 
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: #fff var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+}
+
 ul {
   list-style: none;
   display: flex;
@@ -72,13 +85,13 @@ ul li a {
   -webkit-backdrop-filter: blur(4px);
   text-decoration: none;
   font-weight: 500;
-  color: #fff;
+  color: var(--text-color);
   transition: background 0.2s;
 }
 
 ul li a:hover {
-  background: rgba(255, 255, 255, 0.5);
-  border: 1.5px solid #fff;
+  background: var(--surface-color-hover);
+  border: 1.5px solid var(--text-color);
 }
 
 #social-links {
@@ -98,7 +111,6 @@ ul li a:hover {
 }
 
 #social-links a:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: var(--highlight-color);
   padding: 16px;
-  
 }
